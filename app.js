@@ -11,4 +11,22 @@ function($scope){
     {title: 'post 4', upvotes: 9},
     {title: 'post 5', upvotes: 4},
   ]
+
+  // add post
+  $scope.addPost = function () {
+    if(!$scope.title || $scope.title === ''){return;}
+    $scope.posts.push({
+      title: $scope.title,
+      link: $scope.link,
+      upvotes: 0,
+
+    });
+    $scope.title = '';
+    $scope.link = '';
+  };
+
+  // increment upvotes
+  $scope.incrementUpvotes = function (post) {
+    post.upvotes += 1;
+  };
 }]);
